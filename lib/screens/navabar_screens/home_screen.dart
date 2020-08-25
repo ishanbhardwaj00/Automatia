@@ -127,14 +127,14 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Stack(
-                      alignment: Alignment.topCenter,
-                      children: [
-                        GestureDetector(
-                          onTap: () => Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) {
-                            return RoomLayout(room: rooms[index]);
-                          })),
-                          child: Container(
+                    GestureDetector(
+                      onTap: () => Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) {
+                        return RoomLayout(room: rooms[index]);
+                      })),
+                      child: Stack(
+                        alignment: Alignment.topCenter,
+                        children: [
+                          Container(
                             height: 110,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(9),
@@ -148,13 +148,13 @@ class _HomeScreenState extends State<HomeScreen> {
                               ]
                             ),
                           ),
-                        ),
-                        Positioned(
-                            top: 5,
-                            child: ClipRRect(
-                                borderRadius: BorderRadius.circular(100),
-                                child: Image(image:  AssetImage(rooms[index].imageUrl,), alignment: Alignment.center, width: 90, height: 90,))),
-                      ],
+                          Positioned(
+                              top: 5,
+                              child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(100),
+                                  child: Image(image:  AssetImage(rooms[index].imageUrl,), alignment: Alignment.center, width: 90, height: 90,))),
+                        ],
+                      ),
                     ),
                     SizedBox(height: 10,),
                     Column(
