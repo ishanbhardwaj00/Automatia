@@ -8,7 +8,7 @@ class SideDrawer extends StatefulWidget {
 }
 
 class _SideDrawerState extends State<SideDrawer> {
-  List<String> sideDrawerItems= ["Sync Devices", "Analytics", "Set Timer", "Favorites", "Support", "Tips", "Blogs", "Notifications", "Settings"];
+  List<String> sideDrawerItems= ["Sync Devices", "Analytics", "Set Timer", "Favorites", "Support", "Tips", "Blogs", "Notifications", "Settings", "Log Out"];
   int deviceCount() {
     int sum=0;
     for(int i=0;i<rooms.length;i++) {
@@ -39,7 +39,7 @@ class _SideDrawerState extends State<SideDrawer> {
             ),
             decoration: BoxDecoration(
               gradient: LinearGradient(begin: Alignment.topLeft, end: Alignment.bottomRight,
-                colors: [Color(0xff734f96), Colors.purple],
+                colors: [Color(0xff191970 ), Color(0xff800080)],
               ),
 
               borderRadius: BorderRadius.circular(0)

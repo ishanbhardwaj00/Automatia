@@ -41,20 +41,28 @@ class _HomepageState extends State<Homepage> with SingleTickerProviderStateMixin
             drawer: SideDrawer(),
             appBar: PreferredSize(
                 child: AppBar(
-                  backgroundColor: Color(0xff734f96),
+                  //backgroundColor: Color(0xff734f96),
                   elevation: 0.0,
                   iconTheme: new IconThemeData(color: Colors.white),
-                  flexibleSpace: FlexibleSpaceBar(
-                    titlePadding: EdgeInsets.all(0),
-                    centerTitle: true,
-                    title: Row(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(left: 12, right: 9),
-                          child: Text("Good Morning,", style: TextStyle( fontSize: 24, fontWeight: FontWeight.w300),),
-                        ),
-                        Text(user.name, style: TextStyle(fontSize: 25),)
-                      ],
+                  flexibleSpace:
+                  Container(
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(begin: Alignment.topLeft, end: Alignment.bottomRight,
+                        colors: [Color(0xff191970 ), Color(0xff800080)],
+                      ),
+                    ),
+                    child: FlexibleSpaceBar(
+                      titlePadding: EdgeInsets.all(0),
+                      centerTitle: true,
+                      title: Row(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(left: 12, right: 9),
+                            child: Text("Good Morning,", style: TextStyle( fontSize: 24, fontWeight: FontWeight.w300),),
+                          ),
+                          Text(user.name, style: TextStyle(fontSize: 25),)
+                        ],
+                      ),
                     ),
                   ),
                   actions: <Widget>[
@@ -67,7 +75,7 @@ class _HomepageState extends State<Homepage> with SingleTickerProviderStateMixin
                     ),
                   ],
                 ),
-                preferredSize: Size.fromHeight(100)),
+                preferredSize: Size.fromHeight(110)),
             body: Column(
               children: [
                 Expanded(child: PageView(

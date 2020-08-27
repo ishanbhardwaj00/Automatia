@@ -22,7 +22,11 @@ class _HomeScreenState extends State<HomeScreen> {
           alignment: Alignment.topCenter,
           children: [
             Container(height: 45, color: Theme.of(context).scaffoldBackgroundColor,),
-            Container(height: 20, color: Color(0xff734f96),),
+            Container(height: 20, /*color: Color(0xff734f96),*/ decoration: BoxDecoration(
+              gradient: LinearGradient(begin: Alignment.topLeft, end: Alignment.bottomRight,
+                colors: [Color(0xff191970 ), Color(0xff800080)],
+              ),
+            ),),
             Positioned(
               top: 3,
               child: Container(width: 350, height:40, decoration: BoxDecoration(color: Colors.white,
