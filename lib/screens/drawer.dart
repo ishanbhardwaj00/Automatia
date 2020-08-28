@@ -1,5 +1,10 @@
+import 'package:automatia_second/homepage.dart';
+import 'package:automatia_second/screens/navabar_screens/analytics.dart';
+
 import 'navabar_screens/home_screen.dart';
 import 'package:flutter/material.dart';
+
+
 
 
 
@@ -9,6 +14,8 @@ class Draw extends StatefulWidget {
 }
 
 class _DrawState extends State<Draw> {
+
+
 @override
   Widget build(BuildContext context) {
     return Drawer(

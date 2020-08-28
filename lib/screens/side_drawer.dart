@@ -1,13 +1,20 @@
 import 'package:automatia_second/models/room_data.dart';
 import 'package:automatia_second/models/user.dart';
+import 'package:automatia_second/screens/navabar_screens/analytics.dart';
+import 'package:automatia_second/screens/sd_screens/analytics.dart';
+import 'package:automatia_second/screens/sd_screens/favorites.dart';
+import 'package:automatia_second/screens/sd_screens/set_timer.dart';
+import 'package:automatia_second/screens/sd_screens/sync_devices.dart';
+import 'package:automatia_second/screens/timer.dart';
 import 'package:flutter/material.dart';
 
 class SideDrawer extends StatefulWidget {
   @override
   _SideDrawerState createState() => _SideDrawerState();
 }
-
+PageController pageController=PageController();
 class _SideDrawerState extends State<SideDrawer> {
+  List<dynamic> cName= [Sync(),Analytics(),SetTimer(),Fav(),AnalyticsNew(),AnalyticsNew(),AnalyticsNew(),AnalyticsNew(),AnalyticsNew(),AnalyticsNew(),];
   List<String> sideDrawerItems= ["Sync Devices", "Analytics", "Set Timer", "Favorites", "Support", "Tips", "Blogs", "Notifications", "Settings", "Log Out"];
   int deviceCount() {
     int sum=0;
@@ -47,7 +54,10 @@ class _SideDrawerState extends State<SideDrawer> {
           ),
           ListView.builder(padding: EdgeInsets.all(0),shrinkWrap: true,itemCount: sideDrawerItems.length, itemBuilder: (BuildContext context, int val)  {
             return  InkWell(
-                onTap: () {},
+              onTap: () {
+                Navigator.pop(context);
+                pageController.jumpToPage(1);
+              },
                 splashColor: Colors.purple[100],
                 child: Container(padding: EdgeInsets.all(15),child: Text(sideDrawerItems[val], style: TextStyle(fontSize: 16, fontFamily: "Raleway", ),),),
               );
