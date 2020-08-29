@@ -136,7 +136,7 @@ class _RoomLayoutState extends State<RoomLayout> {
                         AnimatedPositioned(
                           duration: Duration(milliseconds: 400),
                           curve: Curves.ease,
-                          top: 3,
+                          top: 5,
                           left: isSwitched? 60: 0,
                           right: isSwitched? 0:60,
                           child: InkWell(
@@ -149,7 +149,7 @@ class _RoomLayoutState extends State<RoomLayout> {
                                   turns: animation,
                                 );
                               },
-                              child: isSwitched? Icon(Icons.power_settings_new, color: Colors.green,) :Icon(Icons.offline_bolt, color: Colors.redAccent.withOpacity(0.9),),
+                              child: isSwitched? Icon(Icons.power_settings_new, color: Colors.green,size : 25) :Icon(Icons.offline_bolt, color: Colors.redAccent.withOpacity(0.9),size: 25),
                             ),
                           ),
                         ),
