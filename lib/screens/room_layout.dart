@@ -124,8 +124,8 @@ class _RoomLayoutState extends State<RoomLayout> {
                   child: AnimatedContainer(
                     padding: EdgeInsets.symmetric(vertical: 2,horizontal: 2.5),
                     duration: Duration(milliseconds: 400),
-                    height: 30,
-                    width: 95,
+                    height: 40,
+                    width: 100,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
                       color: isSwitched? Colors.greenAccent.withOpacity(0.5): Colors.redAccent[100].withOpacity(0.5),
@@ -149,7 +149,7 @@ class _RoomLayoutState extends State<RoomLayout> {
                                   turns: animation,
                                 );
                               },
-                              child: isSwitched? Text("ON", style: TextStyle(color: Colors.green),) :Text("OFF", style: TextStyle(color: Colors.red),),
+                              child: isSwitched? Icon(Icons.power_settings_new, color: Colors.green,) :Icon(Icons.offline_bolt, color: Colors.redAccent.withOpacity(0.9),),
                             ),
                           ),
                         ),
