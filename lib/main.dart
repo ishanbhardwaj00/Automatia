@@ -21,12 +21,12 @@ class MyApp extends StatelessWidget {
               scaffoldBackgroundColor: Color(0xffFDF9F9),
                 primaryColor: Color(0xff734f96),
               ),
-              home: SplashScreen(
+              home: /*SplashScreen(
                 'assets/splashnew.flr',
                 HomeView(),
                 startAnimation: 'Untitled',
                 backgroundColor: Colors.white,
-              ),
+              ),*/ HomeView(),
             );
           },
         );
