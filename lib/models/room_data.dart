@@ -47,6 +47,10 @@ List<Devices> livingRoomDevices= [
   Devices(deviceName: "AC", imageUrl: "assets/ac.png"),
 ];
 
+List<Devices> kitchen= [Devices(deviceName: "Light 1 ", imageUrl: "assets/light1.png"),
+  Devices(deviceName: "Fan", imageUrl: "assets/fan.png"),];
+
+
 List<Room> rooms= [
   Room(roomName: "Bedroom", imageUrl: "assets/roomImages/bedroom.jpg", devices: 5, color: Color(0xffDBF0FF),device: bedroomDevices),
   Room(roomName: "Bathroom", imageUrl: "assets/roomImages/bathroom.jpg", devices: 3, color: Color(0xffFBECDE), device: bathroomDevices),
@@ -57,4 +61,5 @@ List<Room> rooms= [
   Room(roomName: "Bedroom", imageUrl: "assets/roomImages/bedroom.jpg", devices: 5, color: Color(0xffF8F8F8),device: bedroomDevices),
   Room(roomName: "Bedroom", imageUrl: "assets/roomImages/bedroom.jpg", devices: 5, color: Color(0xffFBECDE),device: bedroomDevices),
   Room(roomName: "Bedroom", imageUrl: "assets/roomImages/bedroom.jpg", devices: 5, color: Color(0xffFBECDE),device: bedroomDevices),
+  Room(roomName: "Kitchen", imageUrl: "assets/auto.png", devices: 2, color: Color(0xffFBECDE),device: kitchen),
 ];

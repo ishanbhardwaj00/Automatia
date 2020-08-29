@@ -13,6 +13,7 @@ class RoomLayout extends StatefulWidget {
 
 class _RoomLayoutState extends State<RoomLayout> {
   int index=0;
+  double sValue=20;
   toggleButton() {
     setState(() {
       isSwitched = !isSwitched;
@@ -108,38 +109,52 @@ class _RoomLayoutState extends State<RoomLayout> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(widget.room.device[ind].deviceName, style: TextStyle(fontSize: 20),),
-                AnimatedContainer(
-                  padding: EdgeInsets.symmetric(vertical: 2,horizontal: 2.5),
-                  duration: Duration(milliseconds: 400),
-                  height: 30,
-                  width: 95,
+                Container(
                   decoration: BoxDecoration(
+                      color: Theme.of(context).scaffoldBackgroundColor,
                     borderRadius: BorderRadius.circular(20),
-                    color: isSwitched? Colors.purpleAccent.withOpacity(0.5): Colors.redAccent[100].withOpacity(0.5),
+                    boxShadow:
+                      [
+                        BoxShadow(
+                          offset: Offset(0,2),
+                          color: Colors.grey,
+                        ),
+                      ]
                   ),
-                  child: Stack(
-                    children: [
-                      AnimatedPositioned(
-                        duration: Duration(milliseconds: 400),
-                        curve: Curves.ease,
-                        top: 3,
-                        left: isSwitched? 60: 0,
-                        right: isSwitched? 0:60,
-                        child: InkWell(
-                          onTap: toggleButton,
-                          child: AnimatedSwitcher(
-                            duration: Duration(milliseconds: 400),
-                            transitionBuilder: (Widget child, Animation<double> animation) {
-                              return RotationTransition(
-                                child: child,
-                                turns: animation,
-                              );
-                            },
-                            child: isSwitched? Text("ON", style: TextStyle(color: Colors.purple),) :Text("OFF", style: TextStyle(color: Colors.red),),
+                  child: AnimatedContainer(
+                    padding: EdgeInsets.symmetric(vertical: 2,horizontal: 2.5),
+                    duration: Duration(milliseconds: 400),
+                    height: 30,
+                    width: 95,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: isSwitched? Colors.greenAccent.withOpacity(0.5): Colors.redAccent[100].withOpacity(0.5),
+
+                    ),
+                    child: Stack(
+                      children: [
+                        AnimatedPositioned(
+                          duration: Duration(milliseconds: 400),
+                          curve: Curves.ease,
+                          top: 3,
+                          left: isSwitched? 60: 0,
+                          right: isSwitched? 0:60,
+                          child: InkWell(
+                            onTap: toggleButton,
+                            child: AnimatedSwitcher(
+                              duration: Duration(milliseconds: 400),
+                              transitionBuilder: (Widget child, Animation<double> animation) {
+                                return RotationTransition(
+                                  child: child,
+                                  turns: animation,
+                                );
+                              },
+                              child: isSwitched? Text("ON", style: TextStyle(color: Colors.green),) :Text("OFF", style: TextStyle(color: Colors.red),),
+                            ),
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ],
@@ -152,7 +167,55 @@ class _RoomLayoutState extends State<RoomLayout> {
               Container(height: 200,),
               Image(image: AssetImage(widget.room.device[ind].imageUrl), height: 200,),
             ],
-          )
+          ),
+          SizedBox(
+            height: 10,
+            
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: Text("Intensity ", style: TextStyle(fontSize: 16),),
+              ),
+              Expanded(
+                child: Slider(min: 0,
+                  max: 100,
+                  divisions: 5,
+                  activeColor: Colors.deepPurple,
+                  inactiveColor: Colors.black12,
+                  label: ((sValue/20).toInt()).toString(),
+                  value: sValue,
+                  autofocus: true,
+                  onChanged: (double newValue) {
+    setState(() {
+    sValue = newValue;
+    });
+    },
+                ),
+              ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+             InkWell(
+               borderRadius: BorderRadius.circular(20),
+                onTap: () {},
+               child: Container(
+                 alignment: Alignment.center,
+                 decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    border: Border.all(color: Colors.black)
+                 ),
+                 height: 40,
+                 width: 100,
+                 child: Text("Save", style: TextStyle(fontSize: 20),),
+               ),
+             )
+            ],
+          ),
         ],
       ),
     );
