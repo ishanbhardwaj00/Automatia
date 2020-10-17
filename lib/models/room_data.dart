@@ -12,43 +12,44 @@ class Room {
 
 }
 class Devices {
+  String roomName;
   String deviceName;
   String imageUrl;
-  Devices({this.imageUrl, this.deviceName});
+  Devices({this.imageUrl, this.deviceName, this.roomName});
 }
 
 List<Devices> bedroomDevices= [
-  Devices(deviceName: "Light 1", imageUrl: "assets/light1.png"),
-  Devices(deviceName: "Light 2", imageUrl: "assets/light2.png"),
-  Devices(deviceName: "Light 3", imageUrl: "assets/light1.png"),
-  Devices(deviceName: "Fan", imageUrl: "assets/fan.png"),
-  Devices(deviceName: "AC", imageUrl: "assets/ac.png"),
+  Devices(deviceName: "Light 1", imageUrl: "assets/light1.png", roomName: "Bedroom"),
+  Devices(deviceName: "Light 2", imageUrl: "assets/light2.png",roomName: "Bedroom"),
+  Devices(deviceName: "Light 3", imageUrl: "assets/light1.png", roomName: "Bedroom"),
+  Devices(deviceName: "Fan", imageUrl: "assets/fan.png", roomName: "Bedroom"),
+  Devices(deviceName: "AC", imageUrl: "assets/ac.png", roomName: "Bedroom"),
 ];
 List<Devices> bathroomDevices= [
-  Devices(deviceName: "Light 1", imageUrl: "assets/light1.png"),
-  Devices(deviceName: "Fan", imageUrl: "assets/fan.png"),
-  Devices(deviceName: "Geyser", imageUrl: "assets/geyser.jpg"),
+  Devices(deviceName: "Light 1", imageUrl: "assets/light1.png", roomName: "Bathroom"),
+  Devices(deviceName: "Fan", imageUrl: "assets/fan.png",roomName: "Bathroom"),
+  Devices(deviceName: "Geyser", imageUrl: "assets/geyser.jpg", roomName: "Bathroom"),
 ];
 List<Devices> studyDevices= [
-  Devices(deviceName: "Light 1", imageUrl: "assets/light1.png"),
-  Devices(deviceName: "Fan", imageUrl: "assets/fan.png"),
-  Devices(deviceName: "AC", imageUrl: "assets/ac.png"),
+  Devices(deviceName: "Light 1", imageUrl: "assets/light1.png", roomName: "Study"),
+  Devices(deviceName: "Fan", imageUrl: "assets/fan.png", roomName: "Study"),
+  Devices(deviceName: "AC", imageUrl: "assets/ac.png", roomName: "Study"),
 ];
 List<Devices> storeRoomDevices= [
-  Devices(deviceName: "Light 1", imageUrl: "assets/light1.png"),
-  Devices(deviceName: "Light 2", imageUrl: "assets/light2.png"),
+  Devices(deviceName: "Light 1", imageUrl: "assets/light1.png", roomName: "Store Room"),
+  Devices(deviceName: "Light 2", imageUrl: "assets/light2.png", roomName: "Store Room"),
 ];
 
 List<Devices> livingRoomDevices= [
-  Devices(deviceName: "Light 1", imageUrl: "assets/light1.png"),
-  Devices(deviceName: "Light 2", imageUrl: "assets/light2.png"),
-  Devices(deviceName: "Fan", imageUrl: "assets/fan.png"),
-  Devices(deviceName: "Fan", imageUrl: "assets/fan.png"),
-  Devices(deviceName: "AC", imageUrl: "assets/ac.png"),
+  Devices(deviceName: "Light 1", imageUrl: "assets/light1.png", roomName: "Living Room"),
+  Devices(deviceName: "Light 2", imageUrl: "assets/light2.png", roomName: "Living Room"),
+  Devices(deviceName: "Fan", imageUrl: "assets/fan.png", roomName: "Living Room"),
+  Devices(deviceName: "Fan", imageUrl: "assets/fan.png", roomName: "Living Room"),
+  Devices(deviceName: "AC", imageUrl: "assets/ac.png", roomName: "Living Room"),
 ];
 
-List<Devices> kitchen= [Devices(deviceName: "Light 1 ", imageUrl: "assets/light1.png"),
-  Devices(deviceName: "Fan", imageUrl: "assets/fan.png"),];
+List<Devices> kitchen= [Devices(deviceName: "Light 1 ", imageUrl: "assets/light1.png", roomName: "Kitchen"),
+  Devices(deviceName: "Fan", imageUrl: "assets/fan.png", roomName: "Kitchen"),];
 
 
 List<Room> rooms= [
