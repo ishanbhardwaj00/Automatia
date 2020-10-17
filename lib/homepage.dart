@@ -217,7 +217,7 @@ class _SideDrawerState extends State<SideDrawer> {
           ),InkWell(
             onTap: () {
               Navigator.push(context, MaterialPageRoute(builder: (BuildContext context ) {
-                return Fav();
+                return Fav(ambienceModel: [],);
               }));
             },
             splashColor: Colors.purple[100],

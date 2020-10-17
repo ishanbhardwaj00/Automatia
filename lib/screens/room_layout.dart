@@ -1,5 +1,6 @@
 import 'package:automatia_second/models/ambience_model.dart';
 import 'package:automatia_second/models/room_data.dart';
+import 'package:automatia_second/screens/sd_screens/favorites.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -16,6 +17,7 @@ class RoomLayout extends StatefulWidget {
 }
 
 class _RoomLayoutState extends State<RoomLayout> {
+  final stateKey= GlobalKey();
   List<AmbienceModel> ambienceModel = [];
   int index = 0;
   double sValue = 20;
@@ -51,42 +53,60 @@ bool checkIfAmbExists(AmbienceModel ambModel) {
                   Padding(
                     padding: const EdgeInsets.symmetric(
                         horizontal: 20, vertical: 10),
-                    child: InkWell(
-                      onTap: () {
-                        Navigator.pop(context);
-                        var ambModel = AmbienceModel(
-                             roomName: widget.room.roomName,
-                             deviceName: dName,
-                             deviceImageURL: dImage);
-                        var result =checkIfAmbExists(ambModel);
-                        if(result) {
-                          Fluttertoast.showToast(msg: "Already added this device", backgroundColor: Colors.black, textColor: Colors.white);
-                        } else {
-                          Fluttertoast.showToast(msg: "Added device to favorites",backgroundColor: Colors.black, textColor: Colors.white);
-                          ambienceModel.add(ambModel);
-                          Fav();
-                        }
-                           
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        InkWell(
+                          onTap: () {
+                            Navigator.pop(context);
+                            var ambModel = AmbienceModel(
+                                 roomName: widget.room.roomName,
+                                 deviceName: dName,
+                                 deviceImageURL: dImage);
+                            var result =checkIfAmbExists(ambModel);
+                            if(result) {
+                              Fluttertoast.showToast(msg: "Already added this device", backgroundColor: Colors.black, textColor: Colors.white);
+                            } else {
+                              Fluttertoast.showToast(msg: "Added device to favorites",backgroundColor: Colors.black, textColor: Colors.white);
+                              setState(() {
+                                ambienceModel.add(ambModel);
+                              });
 
-                      },
-                      child: Container(
-                        child: Row(
-                          children: [
-                            Icon(
-                              Icons.favorite,
-                              color: Colors.red,
+                            }
+
+
+                          },
+                          child: Container(
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Icon(
+                                  Icons.favorite,
+                                  color: Colors.red,
+                                ),
+                                SizedBox(
+                                  width: 20,
+                                ),
+                                Text(
+                                  "Add to frequently used",
+                                  style: TextStyle(
+                                      fontSize: 20, fontWeight: FontWeight.w300),
+                                ),
+                              ],
                             ),
-                            SizedBox(
-                              width: 20,
-                            ),
-                            Text(
-                              "Add to frequently used",
-                              style: TextStyle(
-                                  fontSize: 20, fontWeight: FontWeight.w300),
-                            ),
-                          ],
+                          ),
                         ),
-                      ),
+                        GestureDetector(
+                            onTap: ()  {
+                              Navigator.push(context, MaterialPageRoute(
+                              builder: (BuildContext context) {
+                                return Fav(ambienceModel: ambienceModel);
+                              }
+                            ),);
+
+                             },
+                            child: Icon(Icons.settings)),
+                      ],
                     ),
                   ),
                   Padding(
