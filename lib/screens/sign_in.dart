@@ -37,7 +37,7 @@ class _LoginState extends State<Login> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Image(
-                  image: AssetImage("assets/ic_launcher.png"),
+                  image: AssetImage("assets/newlogo.png"),
                   height: 150,
                   width: 150,
                 ),

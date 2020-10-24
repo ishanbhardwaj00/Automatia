@@ -37,7 +37,7 @@ class _SignUpState extends State<SignUp> {
                 Image(
                   height: 150,
                   width: 150,
-                  image: AssetImage("assets/ic_launcher.png"),
+                  image: AssetImage("assets/newlogo.png"),
                 ),
                 SizedBox(height: 50,),
                 Form(
